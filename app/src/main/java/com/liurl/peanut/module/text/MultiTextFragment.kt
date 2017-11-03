@@ -8,25 +8,25 @@ import android.view.View
 import android.view.ViewGroup
 import com.liurl.peanut.R
 import com.liurl.peanut.base.BaseWidgetFragment
-import com.liurl.peanut.constant.Params.ARG_PARAM
+import com.liurl.peanut.constant.Params
 import kotlinx.android.synthetic.main.item_single_text.*
 
 /**
  * @author liuruilin
- * @data 2017/11/2
+ * @data 2017/11/3
  * @describe
  */
-class SingleTextFragment : BaseWidgetFragment(), TextModuleContract.View {
+class MultiTextFragment : BaseWidgetFragment(), TextModuleContract.View {
     private var rootView: View? = null
     private lateinit var datas: TextEntity
     private lateinit var param: String
     override lateinit var presenter: TextModuleContract.Presenter
 
     companion object {
-        fun newInstance(param: String?): SingleTextFragment {
-            val fragment = SingleTextFragment()
+        fun newInstance(param: String?): MultiTextFragment {
+            val fragment = MultiTextFragment()
             val args = Bundle()
-            args.putString(ARG_PARAM, param)
+            args.putString(Params.ARG_PARAM, param)
             fragment.arguments = args
             return fragment
         }
@@ -35,13 +35,13 @@ class SingleTextFragment : BaseWidgetFragment(), TextModuleContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (arguments != null) {
-            param = arguments!!.getString(ARG_PARAM)
+            param = arguments!!.getString(Params.ARG_PARAM)
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (null == rootView) {
-            rootView = inflater.inflate(R.layout.item_single_text, container, false)
+            rootView = inflater.inflate(R.layout.item_multi_text, container, false)
         }
         return rootView
     }
@@ -58,7 +58,7 @@ class SingleTextFragment : BaseWidgetFragment(), TextModuleContract.View {
     }
 
     private fun initView() {
-        et_single_text.addTextChangedListener(object: TextWatcher{
+        et_single_text.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -72,15 +72,7 @@ class SingleTextFragment : BaseWidgetFragment(), TextModuleContract.View {
 
     override fun initModule(entity: TextEntity) {
         datas = entity
-        if (entity.element_type.trim().isEmpty()) iv_single_text_element.visibility = View.GONE else iv_single_text_element.setImageResource(getElementResourceId(entity.element_type))
         if (entity.title.trim().isEmpty()) tv_single_text_title.visibility = View.GONE else tv_single_text_title.text = entity.title
         if (entity.hint.trim().isEmpty()) et_single_text.hint = "" else et_single_text.hint = entity.hint
-    }
-
-    private fun getElementResourceId(element: String): Int {
-        when(element) {
-            "" -> return 0
-        }
-        return 0
     }
 }

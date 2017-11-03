@@ -11,7 +11,6 @@ import com.liurl.peanut.module.text.TextEntity
  * @describe
  */
 class OptionsModelImpl: ModuleModel<OptionsEntity> {
-
     companion object {
         private var INSTANCE: OptionsModelImpl? = null
         /**

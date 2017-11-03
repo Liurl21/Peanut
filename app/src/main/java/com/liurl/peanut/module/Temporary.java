@@ -11,18 +11,18 @@ import java.util.List;
 public class Temporary {
 
     /**
-     * title : 问题类型
-     * sub_title : 选择你要反馈的问题类型
+     * title : 页面截图(最多3张)
+     * sub_title :
      * hint :
-     * options : ["显示错误","数据错误","应用闪退"]
-     * value : 显示错误
+     * limit : 3
+     * value : ["",""]
      */
 
     private String title;
     private String sub_title;
     private String hint;
-    private String value;
-    private List<String> options;
+    private int limit;
+    private List<String> value;
 
     public String getTitle() {
         return title;
@@ -48,19 +48,19 @@ public class Temporary {
         this.hint = hint;
     }
 
-    public String getValue() {
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
+
+    public List<String> getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(List<String> value) {
         this.value = value;
-    }
-
-    public List<String> getOptions() {
-        return options;
-    }
-
-    public void setOptions(List<String> options) {
-        this.options = options;
     }
 }

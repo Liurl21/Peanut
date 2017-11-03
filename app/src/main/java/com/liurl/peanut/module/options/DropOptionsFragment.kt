@@ -44,8 +44,8 @@ class DropOptionsFragment:BaseWidgetFragment(), OptionsModuleContract.View {
         return rootView
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         presenter.loadData(param)
     }
 
@@ -57,5 +57,6 @@ class DropOptionsFragment:BaseWidgetFragment(), OptionsModuleContract.View {
     override fun initModule(entity: OptionsEntity) {
         datas = entity
         if (entity.title.isEmpty()) tv_drop_options_title.visibility = View.GONE else tv_drop_options_title.text = entity.title
+        if (entity.value.isEmpty()) tv_drop_options_value.text = "" else tv_drop_options_value.text = entity.value
     }
 }

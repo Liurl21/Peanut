@@ -22,6 +22,8 @@
             android:id="@+id/tv_drop_options_value"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:text="这是一段测试文字"
             android:layout_toLeftOf="@+id/iv_drop_options_sign"/>
 
         <ImageView

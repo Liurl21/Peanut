@@ -5,6 +5,7 @@ import android.support.design.widget.AppBarLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,10 @@ import com.liurl.peanut.base.BaseWidgetFragment
 import com.liurl.peanut.collection.entity.RootPageRequestResult
 import com.liurl.peanut.constant.Params.ARG_PARAM
 import com.liurl.peanut.constant.Params.SU_ROOT_ID
+import com.liurl.peanut.module.options.DropOptionsFragment
+import com.liurl.peanut.module.options.OptionsModelImpl
+import com.liurl.peanut.module.options.OptionsPresenter
+import com.liurl.peanut.module.text.MultiTextFragment
 import com.liurl.peanut.module.text.TextModelImpl
 import com.liurl.peanut.module.text.SingleTextFragment
 import com.liurl.peanut.module.text.TextPresenter
@@ -26,7 +31,7 @@ import java.util.*
  * @describe
  */
 class RootPageFragment : BaseWidgetFragment(), RootPageContract.View {
-    private val TAG = "根页签"
+    private val TAG = "root_page"
 
     /** 最上层跟跟标签ID */
     private var suRootID: Int = 0
@@ -85,6 +90,18 @@ class RootPageFragment : BaseWidgetFragment(), RootPageContract.View {
                     fragment = SingleTextFragment.newInstance(entity.data)
                     TextPresenter(TextModelImpl.getInstance(), fragment)
                 }
+
+                "multi_text" -> {
+                    fragment = MultiTextFragment.newInstance(entity.data)
+                    TextPresenter(TextModelImpl.getInstance(), fragment)
+                }
+
+                "drop_options" -> {
+                    fragment = DropOptionsFragment.newInstance(entity.data)
+                    OptionsPresenter(OptionsModelImpl.getInstance(), fragment)
+                }
+
+                else -> Log.i(TAG, entity.type + ">>>>>> is unknown module!")
             }
 
             if (fragment != null) {

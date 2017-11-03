@@ -1,5 +1,6 @@
 package com.liurl.peanut.module.options
 
+import com.liurl.peanut.collection.callback.LoadDataCallback
 import com.liurl.peanut.module.text.TextModuleContract
 import com.liurl.peanut.module.text.TextEntity
 
@@ -10,8 +11,8 @@ import com.liurl.peanut.module.text.TextEntity
  */
 class OptionsPresenter(
         private var mModel: OptionsModelImpl,
-        private var mView: TextModuleContract.View
-): TextModuleContract.Presenter {
+        private var mView: OptionsModuleContract.View
+): OptionsModuleContract.Presenter {
     init {
         mView.presenter = this
     }
@@ -19,11 +20,18 @@ class OptionsPresenter(
     override fun start() {
     }
 
-    override fun update(entity: TextEntity) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun update(entity: OptionsEntity) {
+
     }
 
     override fun loadData(mParam: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        mModel.analyseData(mParam, object : LoadDataCallback<OptionsEntity> {
+            override fun onDataLoaded(data: OptionsEntity) {
+                mView.initModule(data)
+            }
+
+            override fun onDataNotAvailable(e: Throwable) {
+            }
+        })
     }
 }

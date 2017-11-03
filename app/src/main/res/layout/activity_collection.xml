@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
     <com.liurl.peanut.collection.view.RootScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/btn__submit"
         android:scrollbars="none">
 
         <LinearLayout
@@ -22,4 +22,14 @@
         </LinearLayout>
     </com.liurl.peanut.collection.view.RootScrollView>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/btn__submit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:text="提交"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"/>
+</RelativeLayout>
