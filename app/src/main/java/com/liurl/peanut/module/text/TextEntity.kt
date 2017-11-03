@@ -13,10 +13,9 @@ class TextEntity {
      * hint : 问题简单描述
      * value :
      */
-
-    var element_type: String = ""
     var title: String = ""
+    var value: String = ""
+    var element_type: String = ""
     var sub_title: String = ""
     var hint: String = ""
-    var value: String = ""
 }

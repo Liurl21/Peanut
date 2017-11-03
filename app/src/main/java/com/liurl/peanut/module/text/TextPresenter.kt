@@ -1,8 +1,6 @@
 package com.liurl.peanut.module.text
 
 import com.liurl.peanut.collection.callback.LoadDataCallback
-import com.liurl.peanut.module.ModuleContract
-import com.liurl.peanut.module.ModuleModel
 
 /**
  * @author liuruilin
@@ -11,8 +9,8 @@ import com.liurl.peanut.module.ModuleModel
  */
 class TextPresenter(
         private var mModel: TextModelImpl,
-        private var mView: ModuleContract.View
-): ModuleContract.Presenter {
+        private var mView: TextModuleContract.View
+): TextModuleContract.Presenter {
     init {
         mView.presenter = this
     }

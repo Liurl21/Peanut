@@ -1,6 +1,6 @@
 package com.liurl.peanut.module.options
 
-import com.liurl.peanut.module.ModuleContract
+import com.liurl.peanut.module.text.TextModuleContract
 import com.liurl.peanut.module.text.TextEntity
 
 /**
@@ -10,10 +10,13 @@ import com.liurl.peanut.module.text.TextEntity
  */
 class OptionsPresenter(
         private var mModel: OptionsModelImpl,
-        private var mView: ModuleContract.View
-): ModuleContract.Presenter {
+        private var mView: TextModuleContract.View
+): TextModuleContract.Presenter {
+    init {
+        mView.presenter = this
+    }
+
     override fun start() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun update(entity: TextEntity) {

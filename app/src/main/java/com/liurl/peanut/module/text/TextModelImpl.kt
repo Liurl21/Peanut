@@ -12,14 +12,14 @@ import com.liurl.peanut.module.ModuleModel
 class TextModelImpl : ModuleModel<TextEntity> {
     companion object {
 
-        private var sINSTANCE: TextModelImpl? = null
+        private var INSTANCE: TextModelImpl? = null
         /**
          * Returns the single instance of this class, creating it if necessary.
          */
         @JvmStatic
         fun getInstance(): TextModelImpl {
-            return sINSTANCE ?: TextModelImpl()
-                    .apply { sINSTANCE = this }
+            return INSTANCE ?: TextModelImpl()
+                    .apply { INSTANCE = this }
         }
 
         /**
@@ -28,7 +28,7 @@ class TextModelImpl : ModuleModel<TextEntity> {
          */
         @JvmStatic
         fun destroyInstance() {
-            sINSTANCE = null
+            INSTANCE = null
         }
     }
 

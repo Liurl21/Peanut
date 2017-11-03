@@ -15,7 +15,7 @@ import com.liurl.peanut.collection.entity.RootPageRequestResult
 import com.liurl.peanut.constant.Params.ARG_PARAM
 import com.liurl.peanut.constant.Params.SU_ROOT_ID
 import com.liurl.peanut.module.text.TextModelImpl
-import com.liurl.peanut.module.text.TextModuleFragment
+import com.liurl.peanut.module.text.SingleTextFragment
 import com.liurl.peanut.module.text.TextPresenter
 import kotlinx.android.synthetic.main.fragment_root.*
 import java.util.*
@@ -82,7 +82,7 @@ class RootPageFragment : BaseWidgetFragment(), RootPageContract.View {
             val entity = result.datas[i]
             when (entity.type) {
                 "single_text" -> {
-                    fragment = TextModuleFragment.newInstance(entity.data)
+                    fragment = SingleTextFragment.newInstance(entity.data)
                     TextPresenter(TextModelImpl.getInstance(), fragment)
                 }
             }

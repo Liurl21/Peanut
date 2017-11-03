@@ -1,21 +1,20 @@
-package com.liurl.peanut.module
+package com.liurl.peanut.module.options
 
 import com.liurl.peanut.base.BasePresenter
 import com.liurl.peanut.base.BaseView
-import com.liurl.peanut.module.text.TextEntity
 
 /**
  * @author liuruilin
- * @data 2017/11/1
+ * @data 2017/11/3
  * @describe
  */
-interface ModuleContract {
+interface OptionsModuleContract {
     interface View: BaseView<Presenter> {
-        fun initModule(entity: TextEntity)
+        fun initModule(entity: OptionsEntity)
     }
 
     interface Presenter: BasePresenter {
         fun loadData(mParam: String)
-        fun update(entity: TextEntity)
+        fun update(entity: OptionsEntity)
     }
 }

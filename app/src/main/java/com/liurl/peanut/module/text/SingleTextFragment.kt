@@ -9,23 +9,22 @@ import android.view.ViewGroup
 import com.liurl.peanut.R
 import com.liurl.peanut.base.BaseWidgetFragment
 import com.liurl.peanut.constant.Params.ARG_PARAM
-import com.liurl.peanut.module.ModuleContract
-import kotlinx.android.synthetic.main.item_text.*
+import kotlinx.android.synthetic.main.item_single_text.*
 
 /**
  * @author liuruilin
  * @data 2017/11/2
  * @describe
  */
-class TextModuleFragment: BaseWidgetFragment(), ModuleContract.View {
+class SingleTextFragment : BaseWidgetFragment(), TextModuleContract.View {
     private var rootView: View? = null
     private lateinit var datas: TextEntity
     private lateinit var param: String
-    lateinit var mPresenter: ModuleContract.Presenter
+    override lateinit var presenter: TextModuleContract.Presenter
 
     companion object {
-        fun newInstance(param: String?): TextModuleFragment {
-            val fragment = TextModuleFragment()
+        fun newInstance(param: String?): SingleTextFragment {
+            val fragment = SingleTextFragment()
             val args = Bundle()
             args.putString(ARG_PARAM, param)
             fragment.arguments = args
@@ -42,14 +41,14 @@ class TextModuleFragment: BaseWidgetFragment(), ModuleContract.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (null == rootView) {
-            rootView = inflater.inflate(R.layout.item_text, container, false)
+            rootView = inflater.inflate(R.layout.item_single_text, container, false)
         }
         return rootView
     }
 
     override fun onResume() {
         super.onResume()
-        mPresenter.loadData(param)
+        presenter.loadData(param)
         initView()
     }
 
@@ -66,7 +65,7 @@ class TextModuleFragment: BaseWidgetFragment(), ModuleContract.View {
 
             override fun afterTextChanged(p0: Editable?) {
                 datas.value = p0.toString()
-                mPresenter.update(datas)
+                presenter.update(datas)
             }
         })
     }
