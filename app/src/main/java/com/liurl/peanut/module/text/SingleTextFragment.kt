@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import com.liurl.peanut.R
 import com.liurl.peanut.base.BaseWidgetFragment
 import com.liurl.peanut.constant.Params.ARG_PARAM
-import kotlinx.android.synthetic.main.item_single_text.*
+import kotlinx.android.synthetic.main.module_single_text.*
 
 /**
  * @author liuruilin
@@ -41,7 +41,7 @@ class SingleTextFragment : BaseWidgetFragment(), TextModuleContract.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (null == rootView) {
-            rootView = inflater.inflate(R.layout.item_single_text, container, false)
+            rootView = inflater.inflate(R.layout.module_single_text, container, false)
         }
         return rootView
     }

@@ -15,6 +15,9 @@ import com.liurl.peanut.base.BaseWidgetFragment
 import com.liurl.peanut.collection.entity.RootPageRequestResult
 import com.liurl.peanut.constant.Params.ARG_PARAM
 import com.liurl.peanut.constant.Params.SU_ROOT_ID
+import com.liurl.peanut.module.image.ImageFragment
+import com.liurl.peanut.module.image.ImageModelImpl
+import com.liurl.peanut.module.image.ImagePresenter
 import com.liurl.peanut.module.options.DropOptionsFragment
 import com.liurl.peanut.module.options.OptionsModelImpl
 import com.liurl.peanut.module.options.OptionsPresenter
@@ -99,6 +102,11 @@ class RootPageFragment : BaseWidgetFragment(), RootPageContract.View {
                 "drop_options" -> {
                     fragment = DropOptionsFragment.newInstance(entity.data)
                     OptionsPresenter(OptionsModelImpl.getInstance(), fragment)
+                }
+
+                "upload_images" -> {
+                    fragment = ImageFragment.newInstance(entity.data)
+                    ImagePresenter(ImageModelImpl.getInstance(), fragment)
                 }
 
                 else -> Log.i(TAG, entity.type + ">>>>>> is unknown module!")

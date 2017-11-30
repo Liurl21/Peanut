@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.liurl.peanut.R
 import com.liurl.peanut.base.BaseWidgetFragment
 import com.liurl.peanut.constant.Params
-import kotlinx.android.synthetic.main.item_drop_options.*
+import kotlinx.android.synthetic.main.module_drop_options.*
 
 /**
  * @author liuruilin
@@ -39,7 +39,7 @@ class DropOptionsFragment:BaseWidgetFragment(), OptionsModuleContract.View {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (null == rootView) {
-            rootView = inflater.inflate(R.layout.item_drop_options, container, false)
+            rootView = inflater.inflate(R.layout.module_drop_options, container, false)
         }
         return rootView
     }

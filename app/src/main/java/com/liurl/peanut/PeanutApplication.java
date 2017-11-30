@@ -2,6 +2,7 @@ package com.liurl.peanut;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import com.liurl.peanut.utils.DaoUtil;
 
@@ -17,6 +18,7 @@ public class PeanutApplication extends Application {
     public void onCreate() {
         super.onCreate();
         globalContext = getApplicationContext();
+
         DaoUtil.INSTANCE.initDataBase(globalContext);
     }
 }

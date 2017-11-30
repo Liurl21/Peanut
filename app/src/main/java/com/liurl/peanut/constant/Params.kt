@@ -8,4 +8,5 @@ package com.liurl.peanut.constant
 object Params {
     const val SU_ROOT_ID = "suRootID"
     const val ARG_PARAM = "param"
+    const val REQUEST_CODE_CHOOSE = 1
 }
